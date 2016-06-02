@@ -1,4 +1,4 @@
-[Imgur](http://i.imgur.com/mXDVwe4.png)
+![Lumineer](http://i.imgur.com/mXDVwe4.png)
 
 # Lumineer (Lumen 5 Package)
 

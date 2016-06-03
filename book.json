@@ -1,6 +1,6 @@
 {
   "root": "./docs",
-  "gitbook": "2.x.x",
+  "gitbook": ">=3.0.0-pre.0",
   "plugins": ["github"],
   "pluginsConfig": {
     "github": {

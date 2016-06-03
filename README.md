@@ -11,4 +11,7 @@ Many thanks to Santiago for forking and maintaining Zizaco's [original code](htt
 Please note that this fork is not used on Santiago's or Zizaco's pages at this time, nor is it maintained or contributed to by them.
 
 ## Installation, Configuration and Usage
-To install, configure and learn how to use Lumineer please go to the [Documentation](https://19peaches.gitbooks.io/lumineer/content/).
+To install, configure and learn how to use Lumineer please go to the [Documentation](https://19peaches.gitbooks.io/lumineer/content).
+
+## This package IS NOT complete or ready for public use!
+Please wait for an official 1.0.0 release before installing.

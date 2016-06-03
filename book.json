@@ -1,4 +1,5 @@
 {
+  "root": "./docs",
   "gitbook": "2.x.x",
   "plugins": ["github"],
   "pluginsConfig": {

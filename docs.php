@@ -1,4 +1,6 @@
-<?php require __DIR__ . '/vendor/autoload.php';
+<?php 
+
+require __DIR__ . '/vendor/autoload.php';
 
 use Sami\Sami;
 use Sami\Version\GitVersionCollection;
@@ -10,15 +12,14 @@ $iterator = Finder::create()
     ->in($dir = __DIR__ . '/src');
 
 $versions = GitVersionCollection::create($dir)
-    ->add('master', 'master branch')
-    ->addFromTags('2.*');
+    ->add('master', 'master branch');
 
-$options = array(
+$options = [
     'versions'             => $versions,
-    'title'                => 'Entrust API',
+    'title'                => 'Lumineer API',
     'build_dir'            => __DIR__ . '/build/docs/%version%',
     'cache_dir'            => __DIR__ . '/build/cache/docs/%version%',
     'default_opened_level' => 2,
-);
+];
 
 return new Sami($iterator, $options);

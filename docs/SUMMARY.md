@@ -1,4 +1,4 @@
-![Lumineer](http://i.imgur.com/7yWsc9J.png?1)
+![Lumineer](http://i.imgur.com/mXDVwe4.png)
 
 #Table of Contents
 

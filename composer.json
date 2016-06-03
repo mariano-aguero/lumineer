@@ -50,6 +50,9 @@
         "classmap": [
             "src/commands"
         ],
+        "files": [
+            "src/helpers.php"
+        ],
         "psr-4": {
             "Peaches\\Lumineer\\": "src/Lumineer/"
         }

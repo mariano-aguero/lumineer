@@ -1,0 +1,6 @@
+{
+  "name": "Lumineer",
+  "tagline": "Lumen ACL based on Zizaco/Entrust and Santigarcor/Laratrust",
+  "body": "![Lumineer](http://i.imgur.com/mXDVwe4.png)\r\n\r\n# Lumineer (Lumen 5 Package)\r\n\r\nLumineer is a succinct and flexible way to add Role-based Permissions to **Lumen 5**.\r\n\r\n## Note\r\nThis is a port of the [Laratrust](https://github.com/santigarcor/laratrust) Laravel 5 package to Lumen 5.\r\nMany thanks to Santiago for forking and maintaining Zizaco's [original code](https://github.com/Zizaco/entrust), and thanks to him for getting this thing started!\r\n\r\nPlease note that this fork is not used on Santiago's or Zizaco's pages at this time, nor is it maintained or contributed to by them.\r\n\r\n## Installation, Configuration and Usage\r\nTo install, configure and learn how to use Lumineer please go to the [Documentation](https://19peaches.gitbooks.io/lumineer/content).\r\n\r\n## This package IS NOT complete or ready for public use!\r\nPlease wait for an official 1.0.0 release before installing.\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}

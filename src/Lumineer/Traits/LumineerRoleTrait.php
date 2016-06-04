@@ -1,17 +1,18 @@
 <?php
 
-namespace Peaches\Lumineer\Traits;
-
 /**
- * This file is part of Lumineer,
- * a role & permission management solution for Lumen.
+ * This file is part of the Lumineer role & 
+ * permission management solution for Lumen.
  *
- * @license MIT
- * @package 19peaches\lumineer
+ * @author Vince Kronlein <vince@19peaches.com>
+ * @license https://github.com/19peaches/lumineer/blob/master/LICENSE
+ * @copyright 19 Peaches, LLC. All Rights Reserved.
  */
 
-use Illuminate\Support\Facades\Config;
+namespace Peaches\Lumineer\Traits;
+
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Config;
 
 trait LumineerRoleTrait
 {
@@ -36,7 +37,7 @@ trait LumineerRoleTrait
     public function users()
     {
         return $this->belongsToMany(
-            Config::get('auth.providers.users.model'),
+            Config::get('lumineer.users.model'),
             Config::get('lumineer.role_user_table'),
             Config::get('lumineer.role_foreign_key'),
             Config::get('lumineer.user_foreign_key')

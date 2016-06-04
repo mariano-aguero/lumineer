@@ -1,7 +1,16 @@
 <?php
 
-use Peaches\Lumineer\Middleware\LumineerRole;
+/**
+ * This file is part of the Lumineer role & 
+ * permission management solution for Lumen.
+ *
+ * @author Vince Kronlein <vince@19peaches.com>
+ * @license https://github.com/19peaches/lumineer/blob/master/LICENSE
+ * @copyright 19 Peaches, LLC. All Rights Reserved.
+ */
+
 use Mockery as m;
+use Peaches\Lumineer\Middleware\LumineerRole;
 
 class LumineerRoleTest extends MiddlewareTest
 {

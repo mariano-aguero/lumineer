@@ -1,14 +1,23 @@
 <?php
 
-use Peaches\Lumineer\Contracts\LumineerUserInterface;
-use Peaches\Lumineer\Traits\LumineerUserTrait;
-use Illuminate\Cache\ArrayStore;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Cache;
-use Peaches\Lumineer\Permission;
-use Peaches\Lumineer\Role;
+/**
+ * This file is part of the Lumineer role & 
+ * permission management solution for Lumen.
+ *
+ * @author Vince Kronlein <vince@19peaches.com>
+ * @license https://github.com/19peaches/lumineer/blob/master/LICENSE
+ * @copyright 19 Peaches, LLC. All Rights Reserved.
+ */
+
 use Mockery as m;
+use Peaches\Lumineer\Role;
+use Illuminate\Cache\ArrayStore;
+use Peaches\Lumineer\Permission;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Database\Eloquent\Model;
+use Peaches\Lumineer\Traits\LumineerUserTrait;
+use Peaches\Lumineer\Contracts\LumineerUserInterface;
 
 class LumineerUserTest extends PHPUnit_Framework_TestCase
 {
@@ -55,13 +64,13 @@ class LumineerUserTest extends PHPUnit_Framework_TestCase
             ->andReturn($belongsToMany)
             ->once();
 
-        Config::shouldReceive('get')->once()->with('Lumineer.role')
+        Config::shouldReceive('get')->once()->with('lumineer.role')
             ->andReturn('role_table_name');
-        Config::shouldReceive('get')->once()->with('Lumineer.role_user_table')
+        Config::shouldReceive('get')->once()->with('lumineer.role_user_table')
             ->andReturn('assigned_roles_table_name');
-        Config::shouldReceive('get')->once()->with('Lumineer.user_foreign_key')
+        Config::shouldReceive('get')->once()->with('lumineer.user_foreign_key')
             ->andReturn('user_id');
-        Config::shouldReceive('get')->once()->with('Lumineer.role_foreign_key')
+        Config::shouldReceive('get')->once()->with('lumineer.role_foreign_key')
             ->andReturn('role_id');
 
         /*
@@ -1073,10 +1082,10 @@ class LumineerUserTest extends PHPUnit_Framework_TestCase
         | Expectation
         |------------------------------------------------------------
         */
-        Config::shouldReceive('get')->with('Lumineer.role')->once()->andReturn('App\Role');
-        Config::shouldReceive('get')->with('Lumineer.role_user_table')->once()->andReturn('role_user');
-        Config::shouldReceive('get')->with('Lumineer.user_foreign_key')->once()->andReturn('user_id');
-        Config::shouldReceive('get')->with('Lumineer.role_foreign_key')->once()->andReturn('role_id');
+        Config::shouldReceive('get')->with('lumineer.role')->once()->andReturn('App\Role');
+        Config::shouldReceive('get')->with('lumineer.role_user_table')->once()->andReturn('role_user');
+        Config::shouldReceive('get')->with('lumineer.user_foreign_key')->once()->andReturn('user_id');
+        Config::shouldReceive('get')->with('lumineer.role_foreign_key')->once()->andReturn('role_id');
 
         $relationship->shouldReceive('get')
                      ->andReturn($user->roles)->once();
@@ -1134,7 +1143,7 @@ class HasRoleUser extends Model implements LumineerUserInterface
         return $this->id;
     }
 
-    public function belongsToMany($role, $assignedRolesTable)
+    public function belongsToMany($role, $assignedRolesTable = null, $foreignKey = null, $otherKey = null, $relation = null)
     {
 
     }

@@ -1,18 +1,19 @@
 <?php
 
-namespace Peaches\Lumineer\Traits;
-
 /**
- * This file is part of Lumineer,
- * a role & permission management solution for Lumen.
+ * This file is part of the Lumineer role & 
+ * permission management solution for Lumen.
  *
- * @license MIT
- * @package 19peaches\lumineer
+ * @author Vince Kronlein <vince@19peaches.com>
+ * @license https://github.com/19peaches/lumineer/blob/master/LICENSE
+ * @copyright 19 Peaches, LLC. All Rights Reserved.
  */
 
+namespace Peaches\Lumineer\Traits;
+
+use InvalidArgumentException;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Config;
-use InvalidArgumentException;
 
 trait LumineerUserTrait
 {
@@ -63,7 +64,7 @@ trait LumineerUserTrait
         };
 
         // If the user doesn't use SoftDeletes
-        if (method_exists(Config::get('auth.providers.users.model'), 'restored')) {
+        if (method_exists(Config::get('lumineer.users.model'), 'restored')) {
             static::restored($flushCache);
         }
 
@@ -71,7 +72,7 @@ trait LumineerUserTrait
         static::saved($flushCache);
 
         static::deleting(function ($user) {
-            if (!method_exists(Config::get('auth.providers.users.model'), 'bootSoftDeletes')) {
+            if (!method_exists(Config::get('lumineer.users.model'), 'bootSoftDeletes')) {
                 $user->roles()->sync([]);
             }
 

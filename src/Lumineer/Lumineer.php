@@ -1,19 +1,20 @@
 <?php
 
-namespace Peaches\Lumineer;
-
 /**
- * This class is the main entry point of Lumineer. Usually this the interaction
- * with this class will be done through the Lumineer Facade
+ * This file is part of the Lumineer role & 
+ * permission management solution for Lumen.
  *
- * @license MIT
- * @package 19peaches\lumineer
+ * @author Vince Kronlein <vince@19peaches.com>
+ * @license https://github.com/19peaches/lumineer/blob/master/LICENSE
+ * @copyright 19 Peaches, LLC. All Rights Reserved.
  */
+
+namespace Peaches\Lumineer;
 
 class Lumineer
 {
     /**
-     * Laravel application
+     * Lumen application
      *
      * @var \Illuminate\Foundation\Application
      */

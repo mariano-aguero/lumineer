@@ -1,14 +1,15 @@
 <?php
 
-namespace Peaches\Lumineer;
-
 /**
- * This file is part of Lumineer,
- * a role & permission management solution for Lumen.
+ * This file is part of the Lumineer role & 
+ * permission management solution for Lumen.
  *
- * @license MIT
- * @package 19peaches\lumineer
+ * @author Vince Kronlein <vince@19peaches.com>
+ * @license https://github.com/19peaches/lumineer/blob/master/LICENSE
+ * @copyright 19 Peaches, LLC. All Rights Reserved.
  */
+
+namespace Peaches\Lumineer;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -28,13 +29,20 @@ class LumineerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // Publish config files
+        // Publish config files and models
         $this->publishes([
-            __DIR__.'/../config/config.php' => config_path('lumineer.php'),
+            __DIR__ . '/../config/config.php' => config_path('lumineer.php'),
+            __DIR__ . '/../models/Role.php' => app_path('Role.php'),
+            __DIR__ . '/../models/Permission.php' => app_path('Permission.php'),
+            __DIR__ . '/../models/migration.php' => database_path('migrations/' . date('Y_m_d_His') . "_user_setup_tables.php"),
         ]);
 
         // Register commands
-        $this->commands('command.lumineer.migration');
+        $this->commands([
+            'command.lumineer.migration', 
+            'command.vendor.publish'
+        ]);
+        
         
         // Register blade directives
         $this->bladeDirectives();
@@ -61,31 +69,33 @@ class LumineerServiceProvider extends ServiceProvider
      */
     private function bladeDirectives()
     {
+        $blade = app('view')->getEngineResolver()->resolve('blade')->getCompiler();
+
         // Call to Lumineer::hasRole
-        \Blade::directive('role', function ($expression) {
-            return "<?php if (\\Lumineer::hasRole{$expression}) : ?>";
+        $blade->directive('role', function ($expression) {
+            return "<?php if (lumineer()->hasRole{$expression}) : ?>";
         });
 
-        \Blade::directive('endrole', function ($expression) {
-            return "<?php endif; // Lumineer::hasRole ?>";
+        $blade->directive('endrole', function ($expression) {
+            return "<?php endif; ?>";
         });
 
         // Call to Lumineer::can
-        \Blade::directive('permission', function ($expression) {
-            return "<?php if (\\Lumineer::can{$expression}) : ?>";
+        $blade->directive('permission', function ($expression) {
+            return "<?php if (lumineer()->can{$expression}) : ?>";
         });
 
-        \Blade::directive('endpermission', function ($expression) {
-            return "<?php endif; // Lumineer::can ?>";
+        $blade->directive('endpermission', function ($expression) {
+            return "<?php endif; ?>";
         });
 
         // Call to Lumineer::ability
-        \Blade::directive('ability', function ($expression) {
-            return "<?php if (\\Lumineer::ability{$expression}) : ?>";
+        $blade->directive('ability', function ($expression) {
+            return "<?php if (lumineer()->ability{$expression}) : ?>";
         });
 
-        \Blade::directive('endability', function ($expression) {
-            return "<?php endif; // Lumineer::ability ?>";
+        $blade->directive('endability', function ($expression) {
+            return "<?php endif; ?>";
         });
     }
 
@@ -96,7 +106,7 @@ class LumineerServiceProvider extends ServiceProvider
      */
     private function registerLumineer()
     {
-        $this->app->bind('Lumineer', function ($app) {
+        $this->app->bind('lumineer', function ($app) {
             return new Lumineer($app);
         });
         
@@ -113,6 +123,10 @@ class LumineerServiceProvider extends ServiceProvider
         $this->app->singleton('command.lumineer.migration', function ($app) {
             return new MigrationCommand();
         });
+
+        $this->app->singleton('command.vendor.publish', function ($app) {
+            return new VendorPublishCommand($app['files']);
+        });
     }
 
     /**
@@ -124,7 +138,7 @@ class LumineerServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(
             __DIR__.'/../config/config.php',
-            'Lumineer'
+            'lumineer'
         );
     }
 
@@ -136,7 +150,8 @@ class LumineerServiceProvider extends ServiceProvider
     public function provides()
     {
         return [
-            'command.lumineer.migration'
+            'command.lumineer.migration',
+            'command.vendor.publish'
         ];
     }
 }

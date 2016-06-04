@@ -85,8 +85,8 @@ class MigrationCommand extends Command
     {
         $migrationFile = base_path("/database/migrations")."/".date('Y_m_d_His')."_lumineer_setup_tables.php";
 
-        $usersTable  = Config::get('auth.providers.users.table') ?: 'users';
-        $userModel   = Config::get('auth.providers.users.model');
+        $usersTable  = Config::get('lumineer.users.table') ?: 'users';
+        $userModel   = Config::get('lumineer.users.model');
         $userKeyName = (new $userModel())->getKeyName();
 
         $data = compact(
@@ -98,7 +98,7 @@ class MigrationCommand extends Command
             'userKeyName'
         );
 
-        $output = $this->laravel->view->make('lumineer::generators.migration')->with($data)->render();
+        $output = $this->laravel->view->make('Lumineer::generators.migration')->with($data)->render();
 
         if (!file_exists($migrationFile) && $fs = fopen($migrationFile, 'x')) {
             fwrite($fs, $output);

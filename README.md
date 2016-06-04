@@ -1,6 +1,6 @@
 ![Lumineer](http://i.imgur.com/mXDVwe4.png)
 
-# Lumineer (Lumen 5 Package)
+# Lumineer
 
 Lumineer is a succinct and flexible way to add Role-based Permissions to **Lumen 5**.
 
@@ -14,4 +14,4 @@ Please note that this fork is not used on Santiago's or Zizaco's pages at this t
 To install, configure and learn how to use Lumineer please go to the [Documentation](https://19peaches.gitbooks.io/lumineer/content).
 
 ## This package IS NOT complete or ready for public use!
-Please wait for an official 1.0.0 release before installing.
+Please wait for an official **2.0.0** release before installing.

@@ -16,6 +16,9 @@ use Illuminate\Database\Eloquent\Model;
 use Peaches\Lumineer\Traits\LumineerPermissionTrait;
 use Peaches\Lumineer\Contracts\LumineerPermissionInterface;
 
+/**
+ * Lumineer base model for permissions.
+ */
 class LumineerPermission extends Model implements LumineerPermissionInterface
 {
     use LumineerPermissionTrait;

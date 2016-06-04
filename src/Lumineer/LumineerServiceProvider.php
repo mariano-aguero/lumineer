@@ -13,6 +13,9 @@ namespace Peaches\Lumineer;
 
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * Lumineer service provider.
+ */
 class LumineerServiceProvider extends ServiceProvider
 {
     /**

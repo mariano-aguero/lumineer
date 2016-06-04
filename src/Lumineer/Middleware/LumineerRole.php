@@ -14,6 +14,9 @@ namespace Peaches\Lumineer\Middleware;
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
 
+/**
+ * Lumineer role middleware.
+ */
 class LumineerRole
 {
     const DELIMITER = '|';

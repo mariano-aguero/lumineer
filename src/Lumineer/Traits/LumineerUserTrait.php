@@ -15,6 +15,9 @@ use InvalidArgumentException;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Config;
 
+/**
+ * Lumineer user trait.
+ */
 trait LumineerUserTrait
 {
     /**

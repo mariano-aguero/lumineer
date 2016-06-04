@@ -11,6 +11,9 @@
 
 namespace Peaches\Lumineer\Contracts;
 
+/**
+ * Lumineer permission contract.
+ */
 interface LumineerPermissionInterface
 {    
     /**

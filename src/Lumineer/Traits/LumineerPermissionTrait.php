@@ -13,6 +13,9 @@ namespace Peaches\Lumineer\Traits;
 
 use Illuminate\Support\Facades\Config;
 
+/**
+ * Lumineer permission trait.
+ */
 trait LumineerPermissionTrait
 {
     /**

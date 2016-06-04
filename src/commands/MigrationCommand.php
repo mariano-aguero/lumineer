@@ -14,6 +14,9 @@ namespace Peaches\Lumineer;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Config;
 
+/**
+ * Create migration file for Lumieer tables.
+ */
 class MigrationCommand extends Command
 {
     /**

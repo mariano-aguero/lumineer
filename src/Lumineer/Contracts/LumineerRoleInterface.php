@@ -11,6 +11,9 @@
 
 namespace Peaches\Lumineer\Contracts;
 
+/**
+ * Lumineer role contract.
+ */
 interface LumineerRoleInterface
 {
     /**

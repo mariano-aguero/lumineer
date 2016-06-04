@@ -16,6 +16,9 @@ use Illuminate\Database\Eloquent\Model;
 use Peaches\Lumineer\Traits\LumineerRoleTrait;
 use Peaches\Lumineer\Contracts\LumineerRoleInterface;
 
+/**
+ * Lumineer base model for roles.
+ */
 class LumineerRole extends Model implements LumineerRoleInterface
 {
     use LumineerRoleTrait;

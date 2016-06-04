@@ -11,6 +11,9 @@
 
 namespace Peaches\Lumineer;
 
+/**
+ * Lumineer concrete class for roles and permissions.
+ */
 class Lumineer
 {
     /**

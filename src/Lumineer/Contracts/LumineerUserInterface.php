@@ -11,6 +11,9 @@
 
 namespace Peaches\Lumineer\Contracts;
 
+/**
+ * Lumineer user contract.
+ */
 interface LumineerUserInterface
 {
     /**

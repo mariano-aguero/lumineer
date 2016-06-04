@@ -13,6 +13,9 @@ namespace Peaches\Lumineer;
 
 use Illuminate\Support\Facades\Facade;
 
+/**
+ * Lumineer facade.
+ */
 class LumineerFacade extends Facade
 {
     /**

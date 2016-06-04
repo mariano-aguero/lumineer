@@ -14,6 +14,9 @@ namespace Peaches\Lumineer\Traits;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Config;
 
+/**
+ * Lumineer role trait.
+ */
 trait LumineerRoleTrait
 {
     /**

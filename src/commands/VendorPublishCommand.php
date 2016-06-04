@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * This file is part of the Lumineer role & 
+ * permission management solution for Lumen.
+ *
+ * @author Vince Kronlein <vince@19peaches.com>
+ * @license https://github.com/19peaches/lumineer/blob/master/LICENSE
+ * @copyright 19 Peaches, LLC. All Rights Reserved.
+ */
+
 namespace Peaches\Lumineer;
 
 use Illuminate\Console\Command;
@@ -9,6 +18,9 @@ use Illuminate\Support\ServiceProvider;
 use League\Flysystem\Filesystem as Flysystem;
 use League\Flysystem\Adapter\Local as LocalAdapter;
 
+/**
+ * Publishing for Lumen.
+ */
 class VendorPublishCommand extends Command
 {
     /**

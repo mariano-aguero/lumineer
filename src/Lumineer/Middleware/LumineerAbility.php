@@ -14,6 +14,9 @@ namespace Peaches\Lumineer\Middleware;
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
 
+/**
+ * Lumineer ability middleware.
+ */
 class LumineerAbility
 {
     const DELIMITER = '|';
